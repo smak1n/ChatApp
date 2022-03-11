@@ -35,8 +35,11 @@ export default class Home extends React.Component {
             <View style={styles.inputBox}>
               <Image source={icon} style={styles.icon} />
               <TextInput
+                accessible={true}
+                accessibilityLabel='Your Name'
+                accessibilityHint='Type desired name here'
                 style={styles.userInput}
-                onChangeText={name => this.setState({ name })}
+                onChangeText={(name) => this.setState({ name })}
                 value={this.state.name}
                 placeholder='Your name ...'
               />
@@ -47,19 +50,35 @@ export default class Home extends React.Component {
             </View>
 
             <View style={styles.colorArr}>
-              <TouchableOpacity 
+              <TouchableOpacity
+                accessible={true}
+                accessibilityLabel='black background color'
+                accessibilityHint='When pressed, it changes the background color of the chat screen to black'
+                accessibilityRole='button' 
                 style={styles.color1} 
                 onPress={() => this.changeBgColor(this.colors.option1)}>
               </TouchableOpacity>
-              <TouchableOpacity 
+              <TouchableOpacity
+                accessible={true}
+                accessibilityLabel='purple background color'
+                accessibilityHint='When pressed, it changes the background color of the chat screen to purple'
+                accessibilityRole='button' 
                 style={styles.color2}
                 onPress={() => this.changeBgColor(this.colors.option2)}>
               </TouchableOpacity>
-              <TouchableOpacity 
+              <TouchableOpacity
+                accessible={true}
+                accessibilityLabel='grey background color'
+                accessibilityHint='When pressed, it changes the background color of the chat screen to grey'
+                accessibilityRole='button'
                 style={styles.color3}
                 onPress={() => this.changeBgColor(this.colors.option3)}>
               </TouchableOpacity>
               <TouchableOpacity 
+                accessible={true}
+                accessibilityLabel='light green background color'
+                accessibilityHint='When pressed, it changes the background color of the chat screen to light green'
+                accessibilityRole='button'
                 style={styles.color4}
                 onPress={() => this.changeBgColor(this.colors.option4)}>
               </TouchableOpacity>     
@@ -104,51 +123,52 @@ const styles = StyleSheet.create({
   },
 
   titleBox:{
-    height: '50%',
-    width: '88%',
+    width: '60%',
+    height: 'auto',
     alignItems: 'center',
-    paddingTop: 100
+    marginTop: 60,
+    resizeMode: 'contain',
+    flex: 1,
   },
 
   title: {
     fontSize: 45,
     fontWeight: '600',
     color: '#FFFFFF',
-    textAlign: "center",
+    textAlign: 'center',
   },
 
   mainBox: {
     marginBottom: 30,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     flexGrow: 1,
     flexShrink: 0,
-    flexDirection: "column",
-    justifyContent: "space-evenly",
-    alignItems: "center",
-    paddingTop: 15,
-    paddingBottom: 15,
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
     borderRadius: 10,
-    height: 260,
     minHeight: 260,
     maxHeight: 300,
-    height: "44%",
-    width: "88%"
+    height: '44%',
+    width: '88%',
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 
   inputBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    height: 50,
     borderWidth: 2,
-    borderRadius: 1,
+    borderRadius: 1.5,
     borderColor: 'grey',
     width: '88%',
-    height: 60,
-    paddingLeft: 20,
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
+    paddingLeft: 20
+},
 
   userInput: {
     fontSize: 16, 
-    fontWeight: "300", 
+    fontWeight: '300', 
     color: '#757083', 
     opacity: 0.5,
   },
@@ -161,7 +181,7 @@ const styles = StyleSheet.create({
 
   chooseColor: {
     fontSize: 16, 
-    fontWeight: "300", 
+    fontWeight: '300', 
     color: '#757083', 
     opacity: 1,
   },
@@ -202,15 +222,16 @@ const styles = StyleSheet.create({
 
   button: {
     width: '88%',
-    height: 70,
+    height: 50,
     backgroundColor: '#757083',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderRadius: 3
   },
 
   buttonText: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontWeight: "600"
+    fontWeight: '600'
   }
 });
